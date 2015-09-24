@@ -1,4 +1,4 @@
-<form test-form ps-action="/testform">
+<form test-form ps-action="/testform" ps-init-data="{{parent.data}}">
     <div test-input
         ps-label="name"
         ps-validation="[{required: true, message: 'Необходимо ввести поле @field'}]"
@@ -6,6 +6,8 @@
         required="true">
     </div>
     <div test-input ps-label="surname"
-        ps-display-name="Фамилия"
-        ></div>
+        ps-display-name="Фамилия">
+    </div>
 </form>
+<button type="button" ng-click="restoreForm();">Восстановить</button>
+<button type="button" ng-click="clearForm();">Очистить</button>

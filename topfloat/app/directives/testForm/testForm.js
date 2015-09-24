@@ -40,9 +40,27 @@ angular.module('testDirectives.testForm', [])
         }],
         transclude: true,
         scope: {
-            psAction: '@'
+            psAction: '@',
+            psInitData: '@'
         },
-        link: function () { },
+        link: function (scope, element, attrs) {
+            attrs.$observe('psInitData', function (data) {
+                try{
+                    var obj = JSON.parse(data);
+                } catch (er) { }
+                if (obj) {
+                    for (var i = 0; i < scope.fields.length; i++) {
+                        item = scope.fields[i];
+                        item.data = obj[item.label];
+                    }
+                } else {
+                    for (var i = 0; i < scope.fields.length; i++) {
+                        item = scope.fields[i];
+                        item.data = null;
+                    }
+                }
+            });
+        },
         templateUrl: 'testform.html'
     };
 });

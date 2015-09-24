@@ -17,12 +17,20 @@ app.post('/testform', function (req, res) {
     });
     res.send();
 });
+app.post('/getsavedform', function (req, res) {
+    fs.readFile('app/datastorage/data.txt', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.json(null);
+        };
+        res.json(JSON.parse(data));
+    });
+});
 app.get('/index', function (req, res) {
-    res.sendFile(path.join(__dirname + '/testhtml.html'));
+    res.sendfile(path.join(__dirname + '/testhtml.html'));
 });
 
 app.get(/^(.+)$/, function (req, res) {
-    console.log('static file request : ' + req.params);
     res.sendfile(__dirname + req.params[0]);
 });
 
