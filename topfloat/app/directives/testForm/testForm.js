@@ -41,7 +41,8 @@ angular.module('testDirectives.testForm', [])
         transclude: true,
         scope: {
             psAction: '@',
-            psInitData: '@'
+            psInitData: '@',
+            psFormName: '@'
         },
         link: function (scope, element, attrs) {
             attrs.$observe('psInitData', function (data) {
