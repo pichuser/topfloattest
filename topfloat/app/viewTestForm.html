@@ -1,14 +1,11 @@
-<form test-form>
+<form test-form ps-action="/testform">
     <div test-input
         ps-label="name"
         ps-validation="[{required: true, message: 'Необходимо ввести поле @field'}]"
         ps-display-name="Имя"
-        required="true"
-        >
+        required="true">
     </div>
-    <div test-input ps-label="surname"></div>
+    <div test-input ps-label="surname"
+        ps-display-name="Фамилия"
+        ></div>
 </form>
-<div class="form-group">
-    <label>Popup Text:</label>
-    <input type="text" ng-model="dynamicPopover.content" class="form-control">
-</div>

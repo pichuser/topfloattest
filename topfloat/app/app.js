@@ -9,4 +9,10 @@ angular.module('myApp', [
     $routeProvider.when('/view1', {
         templateUrl: 'viewTestForm.html'
     });
+    $routeProvider.otherwise({ redirectTo: '/view1' });
 }])
+.constant('_', window._)
+// use in views, ng-repeat="x in _.range(3)"
+  .run(function ($rootScope) {
+      $rootScope._ = window._;
+  });

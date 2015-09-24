@@ -30,7 +30,8 @@ angular.module('testDirectives.testInput', [])
                 $scope.inputObject = {
                     label: $scope.psLabel,
                     displayName: $scope.psDisplayName,
-                    validationRules: (!$scope.psValidation ? [] : $scope.psValidation)
+                    validationRules: (!$scope.psValidation ? [] : $scope.psValidation),
+                    data: null
                 };
             },
             templateUrl: 'testinput.html'

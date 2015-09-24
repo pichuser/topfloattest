@@ -1,11 +1,26 @@
 angular.module('testDirectives.testForm', [])
 .directive('testForm', function () {
     return {
-        controller: function ($scope) {
+        controller: ['$scope', '$http', function ($scope, $http) {
             this.fields = [];
             $scope.fields = this.fields;
             $scope.sendData = function () {
-                validate();
+                if (!validate()) {
+                    return;
+                }
+                $http({
+                    url: $scope.psAction,
+                    method: 'POST',
+                    data: getData(),
+                }).then(function (response) {
+                });
+            }
+            function getData() {
+                var testForm = {};
+                _.map($scope.fields, function (el) {
+                    testForm[el.label] = el.data;
+                });
+                return testForm;
             }
             function validate() {
                 for (var i = 0; i < $scope.fields.length; i++) {
@@ -15,14 +30,18 @@ angular.module('testDirectives.testForm', [])
                         if (rule.required) {
                             if (!item.data) {
                                 item.errorMsg = rule.message;
+                                return false;
                             }
                         }
                     }
+                    return true;
                 }
             }
-        },
+        }],
         transclude: true,
-        scope: false,
+        scope: {
+            psAction: '@'
+        },
         link: function () { },
         templateUrl: 'testform.html'
     };

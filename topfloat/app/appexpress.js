@@ -3,24 +3,22 @@ var app = express()
 var fs = require('fs');
 var bodyParser = require('body-parser')
 var path = require("path");
-
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+    res.redirect('/index.html');
 })
-app.post('/testform', function(req, res){
+app.post('/testform', function (req, res) {
     console.log(req.body);
-});
-app.get('/index', function (req, res) {
-    res.sendFile(path.join(__dirname+'/testhtml.html'));
-});
-app.get('/test', function (req, res) {
-    var testobj = { name: "hello" };
-    fs.writeFile("tmp/test.txt", "what do you think", function (err) {
+    fs.writeFile("app/datastorage/data.txt", JSON.stringify(req.body), function (err) {
         if (err) {
+            console.log(err);
         }
     });
-    res.send(testobj);
+    res.send();
+});
+app.get('/index', function (req, res) {
+    res.sendFile(path.join(__dirname + '/testhtml.html'));
 });
 
 app.get(/^(.+)$/, function (req, res) {
@@ -30,9 +28,9 @@ app.get(/^(.+)$/, function (req, res) {
 
 var server = app.listen(3000, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+    var host = server.address().address
+    var port = server.address().port
 
-  console.log('Example app listening at http://%s:%s', host, port)
+    console.log('Example app listening at http://%s:%s', host, port)
 
 })
