@@ -4,7 +4,9 @@ angular.module('testDirectives.testInput', [])
             scope:
                 {
                     psLabel: '@psLabel',
-                    psValidation: '=psValidation'
+                    psValidation: '=psValidation',
+                    psDisplayName: '@',
+                    required: '='
                 },
             require: '^testForm',
             compile: function () {
@@ -27,6 +29,7 @@ angular.module('testDirectives.testInput', [])
                 }
                 $scope.inputObject = {
                     label: $scope.psLabel,
+                    displayName: $scope.psDisplayName,
                     validationRules: (!$scope.psValidation ? [] : $scope.psValidation)
                 };
             },
