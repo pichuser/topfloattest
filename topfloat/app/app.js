@@ -13,6 +13,16 @@ angular.module('myApp', [
     $routeProvider.otherwise({ redirectTo: '/view1' });
 }]).
 controller('ViewController', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+    $scope.choices = [{ description: 'Общение' },
+         { description: 'Знание иностранных языков' },
+        { description: 'Готовка' },
+        { description: 'Бег с препятствиями' },
+        { description: 'Быстрое чтение' },
+        { description: 'Бокс' },
+        { description: 'Пение' },
+        { description: 'Программирование' },
+        { description: 'Вождение' }
+    ];
     $scope.parent = {};
     $scope.clearForm = function () {
         $scope.parent.data = null;
