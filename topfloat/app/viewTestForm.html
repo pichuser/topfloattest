@@ -11,6 +11,13 @@
     <div test-number ps-label="age"
         ps-display-name="Возраст">
     </div>
+    <div test-checkbox ps-label="knowledge"
+        ps-display-name="Навыки"
+        ps-choices="[{description: 'Общение'},
+         {description: 'Знание иностранных языков'},
+        {description: 'Готовка'}
+        ]">
+    </div>
 </form>
 <button type="button" class="btn btn-warning" ng-click="restoreForm();">Восстановить</button>
 <button type="button" class="btn btn-warning" ng-click="clearForm();">Очистить</button>

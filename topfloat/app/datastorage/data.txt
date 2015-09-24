@@ -1,1 +1,1 @@
-{"name":"Сергей","surname":"Пичужкин","age":8}
+{"name":"Сергей","surname":"Пичужкин","age":29,"knowledge":[{"description":"Общение","value":true},{"description":"Знание иностранных языков"},{"description":"Готовка"}]}

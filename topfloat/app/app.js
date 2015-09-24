@@ -11,18 +11,20 @@ angular.module('myApp', [
         controller: 'ViewController'
     });
     $routeProvider.otherwise({ redirectTo: '/view1' });
-}]).    
-controller('ViewController', ['$scope', '$http', function ($scope, $http) {
-    $scope.parent = { data: { test: "jkjkj" } };
+}]).
+controller('ViewController', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+    $scope.parent = {};
     $scope.clearForm = function () {
         $scope.parent.data = null;
+        $timeout(function () { $scope.$broadcast('updateModel'); }, 0);
     }
-    $scope.restoreForm = function(){
+    $scope.restoreForm = function () {
         $http({
             method: 'POST',
             url: '/getsavedform'
         }).then(function (response) {
-            $scope.parent.data = response.data;
+            $scope.parent.data = angular.copy(response.data);
+            $timeout(function () { $scope.$broadcast('updateModel'); }, 0);
         });
     }
 }])

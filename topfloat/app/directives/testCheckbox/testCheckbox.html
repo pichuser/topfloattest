@@ -1,0 +1,16 @@
+<script type="text/ng-template" id="testcheckbox.html"> 
+    <div class="row">
+        <label class="control-label col-sm-1">{{inputObject.displayName}}
+                <span style="color: red" ng-show="required">*</span>
+        </label>
+        <div class="col-sm-9">
+            <div class="checkbox" ng-repeat="ch in inputObject.data">
+                <label>
+                    <input type="checkbox" ng-model="ch.value">
+                    {{ch.description}}
+                </label>      
+            </div>
+        </div>
+    </div>
+     <div>{{inputObject.errorMsg}}</div>
+</script>
