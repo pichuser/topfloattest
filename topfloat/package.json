@@ -14,7 +14,8 @@
     "karma-jasmine": "^0.3.5",
     "karma-junit-reporter": "^0.2.2",
     "protractor": "^2.1.0",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "gulp-shell": "~0.4.3"
   },
   "scripts": {
     "postinstall": "bower install",
@@ -33,6 +34,7 @@
     "express": "~4.13.3",
     "body-parser": "~1.14.0",
     "gulp": "~3.9.0",
-    "gulp-ruby-sass": "~2.0.3"
+    "gulp-ruby-sass": "~2.0.3",
+    "gulp-concat": "~2.6.0"
   }
 }

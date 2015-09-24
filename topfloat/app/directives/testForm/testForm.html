@@ -1,0 +1,9 @@
+<script type="text/ng-template" id="testform.html">
+  <form>
+    <div ng-repeat='f in fields'>
+    <pre>{{f}}</pre>
+    </div>
+    <div ng-transclude></div>
+    <button type='button' ng-click='sendData();'>Отправить</button>
+    </form>
+</script>
