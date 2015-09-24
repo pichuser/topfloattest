@@ -2,5 +2,6 @@
 angular.module('testDirectives', [
   'ngRoute',
   'testDirectives.testForm',
-  'testDirectives.testInput'
+  'testDirectives.testInput',
+  'testDirectives.testNumber'
 ]);
