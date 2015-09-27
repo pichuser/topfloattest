@@ -1,20 +1,19 @@
-<script type="text/ng-template" id="testcheckbox.html"> 
-    <div class="row">
-        <label class="control-label col-sm-1">{{inputObject.displayName}}
+<div class="row">
+    <label class="control-label col-sm-1">
+        {{inputObject.displayName}}
                 <span style="color: red" ng-show="required">*</span>
-        </label>
-       <div class="col-sm-3" ng-repeat="cols in columnsChoices">
+    </label>
+    <div class="col-sm-3" ng-repeat="cols in columnsChoices">
         <ul>
-          <li ng-repeat="ch in cols">
+            <li ng-repeat="ch in cols">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" ng-model="ch.value" ng-change="ch.func()">
                         {{ch.description}}
-                    </label>      
+                    </label>
                 </div>
-          </li>
+            </li>
         </ul>
-      </div>
     </div>
-     <div>{{inputObject.errorMsg}}</div>
-</script>
+</div>
+<div>{{inputObject.errorMsg}}</div>

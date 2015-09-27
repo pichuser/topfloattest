@@ -1,7 +1,7 @@
-angular.module('testDirectives.testForm', [])
-.directive('testForm', function () {
+angular.module('testDirectives')
+.directive('testForm', ['$templateCache', function ($templateCache) {
     return {
-        controller: ['$scope', '$http', function ($scope, $http) {
+        controller: ['$scope', '$http', '$templateCache', function ($scope, $http, $templateCache) {
             this.fields = [];
             $scope.$on('updateModel', function () {
                 $scope.updateData($scope.psInitData);
@@ -75,6 +75,6 @@ angular.module('testDirectives.testForm', [])
             //    scope.updateData(data);
             //});
         },
-        templateUrl: 'testform.html'
+        template: $templateCache.get('testForm/testForm.html')
     };
-});
+}]);

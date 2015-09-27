@@ -1,0 +1,7 @@
+div.row
+	div(style="color:red;padding:20px") hell
+	label.control-label.col-sm-1 {{inputObject.displayName}}
+		span(style='color:red', ng-show='required') *
+	div.col-sm-1
+		input.form-control(type='number',ng-model='inputObject.data')
+div {{inputObject.errorMsg}}

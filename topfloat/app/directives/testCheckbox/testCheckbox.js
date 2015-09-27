@@ -1,5 +1,5 @@
-angular.module('testDirectives.testCheckbox', [])
-    .directive('testCheckbox', function () {
+angular.module('testDirectives')
+    .directive('testCheckbox', ['$templateCache', function ($templateCache) {
         return {
             scope:
                 {
@@ -44,6 +44,6 @@ angular.module('testDirectives.testCheckbox', [])
                     _.last($scope.inputObject.data).func = select_unselectAll;
                 }
             },
-            templateUrl: 'testcheckbox.html'
+            template: $templateCache.get('testCheckbox/testCheckbox.html')
         };
-    });
+    }]);

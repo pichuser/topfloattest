@@ -1,40 +1,25 @@
 {
-  "name": "angular-seed",
+  "name": "testTopfloat",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "test",
+  "repository": "https://github.com/pichuser/topfloattest",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.3.1",
-    "jasmine-core": "^2.3.4",
-    "karma": "~0.12",
-    "karma-chrome-launcher": "^0.1.12",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-jasmine": "^0.3.5",
-    "karma-junit-reporter": "^0.2.2",
-    "protractor": "^2.1.0",
-    "shelljs": "^0.2.6",
-    "gulp-shell": "~0.4.3"
+    "jade": "~1.11.0",
+    "gulp-angular-templatecache": "~1.7.0",
+    "gulp-jade": "~1.1.0",
+    "gulp-webserver": "~0.9.1",
+    "gulp-concat": "~2.6.0"
   },
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "node app/appexpress.js",
-    "pretest": "npm install",
-    "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js  --single-run",
-    "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
+    "start": "node app/appexpress.js"
   },
   "dependencies": {
-    "express": "~4.13.3",
     "body-parser": "~1.14.0",
-    "gulp": "~3.9.0",
-    "gulp-ruby-sass": "~2.0.3",
-    "gulp-concat": "~2.6.0"
+    "gulp": "~3.9.0"
   }
 }

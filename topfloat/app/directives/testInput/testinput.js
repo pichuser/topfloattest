@@ -1,5 +1,5 @@
-angular.module('testDirectives.testInput', [])
-    .directive('testInput', function () {
+angular.module('testDirectives')
+    .directive('testInput', ['$templateCache', function ($templateCache) {
         return {
             scope:
                 {
@@ -34,6 +34,6 @@ angular.module('testDirectives.testInput', [])
                     data: null
                 };
             },
-            templateUrl: 'testinput.html'
+            template: $templateCache.get('testInput/testInput.html')
         };
-    });
+    }]);
