@@ -1,0 +1,24 @@
+
+<div class="ps-row">
+  <label class="control-label">{{inputObject.displayName}}<span ng-show="required" class="asterisk">*</span></label>
+  <div ng-if="!psManyValues" class="form-control">
+    <input type="text" ng-model="inputObject.data"/>
+    <div class="errormsg-wrap">{{inputObject.errorMsg}} </div>
+  </div>
+  <div ng-if="psManyValues" class="form-control">
+    <div ng-repeat="f in inputObject.data track by $index">
+      <input type="text" ng-model="f.value" ng-disabled="$index!=inputObject.data.length-1" placeholder="{{psPlaceholder}}" class="form-width400 form-control"/>
+      <div class="form-control">
+        <div ng-click="removeItem($index);" ng-show="f.value" class="float-left btn-remove">x</div>
+        <div ng-click="addItem()" ng-show="$index==inputObject.data.length-1" class="float-left">
+          <div class="btn-add float-left">+</div>
+          <div class="control-label">Добавить ещё </div>
+        </div>
+      </div>
+      <div class="clear">		</div>
+    </div>
+    <div class="description-wrap">{{psDescription}}</div>
+    <div class="errormsg-wrap">{{inputObject.errorMsg}}</div>
+  </div>
+  <div class="clear"></div>
+</div>

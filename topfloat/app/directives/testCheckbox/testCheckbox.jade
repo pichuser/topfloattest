@@ -1,0 +1,17 @@
+div.ps-row
+	label.control-label {{inputObject.displayName}}
+		span.asterisk(ng-show="required") *
+	div.form-control
+		div
+			div.form-control(ng-repeat="cols in columnsChoices")
+				ul
+					li(ng-repeat="ch in cols")
+						div.checkbox-wrap
+							label
+								- var uid = 'check{{$index}}{{$parent.$index}}'
+								input(type="checkbox", ng-model="ch.value", ng-change="ch.func()",id=uid)
+								label(for=uid) {{ch.description}}
+		div.clear
+		div.description-wrap {{inputObject.description}}
+	div.clear
+	div {{inputObject.errorMsg}}

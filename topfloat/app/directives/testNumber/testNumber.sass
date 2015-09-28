@@ -1,0 +1,119 @@
+.testclass 
+	color: green
+
+.container
+	width: 1400px
+	margin: auto
+
+.control-label
+	float:left
+	width:150px
+	height: 34px
+	text-align:left
+	padding-right:1em
+	padding-top:10px
+
+.form-control
+	float:left
+	vertical-align: center
+
+.clear
+	clear: both
+
+input
+	border-radius: 8px
+	height: 34px
+	width: 100%
+
+.ps-row
+	margin-bottom: 15px
+
+.asterisk
+	color: red
+
+li
+	list-style:none
+
+ul
+	padding: 0px
+	margin: 0px
+
+.description-wrap
+	font-size: 8pt
+	line-height: 12px
+	font-family: Arial
+	color: #999999
+
+.errormsg-wrap
+	@extend .description-wrap
+	color: red
+
+.btn
+	background-color: #FFE783
+	padding: 10px 30px
+	border-radius: 4px
+	font-size: 16px
+	border:none !important
+	box-shadow: 0px 1px 0px rgba(67, 38, 255, 0.51);
+
+.btn-add
+	border: 1px solid black
+	border-radius: 20px
+	width: 20px
+	height: 20px
+	text-align: center
+	margin: 6px
+
+.btn-remove
+	@extend .btn-add
+	background-color: red
+
+.float-left
+	float: left
+
+.form-width700
+	width: 700px
+
+.form-width300
+	width: 300px
+.form-width400
+	width: 400px
+
+
+::-webkit-inner-spin-button { -webkit-appearance: none;}
+::-webkit-outer-spin-button { -webkit-appearance: none;}
+input[type=number] 
+	-moz-appearance: textfield
+
+.number-control
+	@extend .form-control
+	width:50px
+
+.arrow
+	background-color: #F0F0F0	
+	padding: 1px 5px
+	color: #808080
+	cursor: pointer
+.arrow-up
+	@extend .arrow
+	border-radius: 3px 3px 0px 0px
+	border-bottom: 1px solid grey
+.arrow-down
+	@extend .arrow
+	border-radius: 0px 0px 3px 3px
+
+.arrow-container
+	margin-left:5px
+
+.arrow-up:hover
+	background-color: #FFDD55	
+.arrow-down:hover
+	background-color: #FFDD55	
+
+.noselect 
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none

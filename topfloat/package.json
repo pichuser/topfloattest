@@ -11,7 +11,10 @@
     "gulp-angular-templatecache": "~1.7.0",
     "gulp-jade": "~1.1.0",
     "gulp-webserver": "~0.9.1",
-    "gulp-concat": "~2.6.0"
+    "gulp-concat": "~2.6.0",
+    "gulp-sass": "~2.0.4",
+    "gulp-concat-css": "~2.2.0",
+    "gulp-connect": "~2.2.0"
   },
   "scripts": {
     "postinstall": "bower install",

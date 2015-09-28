@@ -33,6 +33,14 @@ angular.module('testDirectives')
                     validationRules: (!$scope.psValidation ? [] : $scope.psValidation),
                     data: null
                 };
+                $scope.increaseNumber = function ()
+                {
+                	$scope.inputObject.data++;
+                }
+                $scope.decreaseNumber = function ()
+                {
+                	$scope.inputObject.data--;
+                }
             },
             template: $templateCache.get('testNumber/testNumber.html')
         };

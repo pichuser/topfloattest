@@ -1,7 +1,11 @@
-div.row
-	div(style="color:red;padding:20px") hell
-	label.control-label.col-sm-1 {{inputObject.displayName}}
+﻿div.ps-row
+	div.control-label
+		label {{inputObject.displayName}}
 		span(style='color:red', ng-show='required') *
-	div.col-sm-1
-		input.form-control(type='number',ng-model='inputObject.data')
-div {{inputObject.errorMsg}}
+	div.number-control
+		input(type='number',ng-model='inputObject.data')
+	div.float-left.arrow-container
+		div.arrow-up.noselect(ng-click='increaseNumber();') ▲
+		div.arrow-down.noselect(ng-click='decreaseNumber();') ▼
+	div.clear
+	div {{inputObject.errorMsg}}

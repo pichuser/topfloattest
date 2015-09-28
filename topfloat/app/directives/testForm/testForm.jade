@@ -1,0 +1,9 @@
+form
+	div.container
+		h1 {{psFormName}}
+		div(ng-transclude)
+		div.ps-row
+			div.control-label &nbsp;
+			div.form-control
+				button.btn(type='button', ng-click='sendData();') Отправить
+			div.clear

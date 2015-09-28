@@ -8,7 +8,8 @@ angular.module('testDirectives')
                     psDisplayName: '@',
                     required: '=',
                     psChoices: '=',
-                    psColumnSize: '='
+                    psColumnSize: '=',
+					psDescription: '@'
                 },
             require: '^testForm',
             compile: function () {
@@ -36,7 +37,8 @@ angular.module('testDirectives')
                     label: $scope.psLabel,
                     displayName: $scope.psDisplayName,
                     validationRules: (!$scope.psValidation ? [] : $scope.psValidation),
-                    data: $scope.psChoices
+                    data: $scope.psChoices,
+					description: $scope.psDescription
                 };
                 updateModel();
                 function updateModel() {
