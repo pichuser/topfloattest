@@ -1,0 +1,11 @@
+div.ps-row
+	div.control-label
+		label {{inputObject.displayName}}
+		span(style='color:red', ng-show='required') *
+	div.float-left
+		block content
+		block footer
+		div.clear
+		div.description-wrap {{psDescription}}
+		div.errormsg-wrap {{inputObject.errorMsg}}
+	div.clear

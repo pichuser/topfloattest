@@ -4,13 +4,6 @@
     <label>{{inputObject.displayName}}</label><span style="color:red" ng-show="required">*</span>
   </div>
   <div class="float-left">
-    <div class="number-control">
-      <input type="number" ng-model="inputObject.data"/>
-    </div>
-    <div class="float-left arrow-container">
-      <div ng-click="increaseNumber();" class="arrow-up noselect">▲</div>
-      <div ng-click="decreaseNumber();" class="arrow-down noselect">▼</div>
-    </div>
     <div class="clear"></div>
     <div class="description-wrap">{{psDescription}}</div>
     <div class="errormsg-wrap">{{inputObject.errorMsg}}</div>

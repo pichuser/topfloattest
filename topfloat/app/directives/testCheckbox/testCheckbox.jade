@@ -1,6 +1,5 @@
-div.ps-row
-	label.control-label {{inputObject.displayName}}
-		span.asterisk(ng-show="required") *
+extend ../_share.jade
+block content
 	div.form-control
 		div
 			div.form-control(ng-repeat="cols in columnsChoices")
@@ -11,7 +10,3 @@ div.ps-row
 								- var uid = 'check{{$index}}{{$parent.$index}}'
 								input(type="checkbox", ng-model="ch.value", ng-change="ch.func()",id=uid)
 								label(for=uid) {{ch.description}}
-		div.clear
-		div.description-wrap {{inputObject.description}}
-	div.clear
-	div {{inputObject.errorMsg}}

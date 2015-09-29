@@ -1,24 +1,28 @@
 
 <div class="ps-row">
-  <label class="control-label">{{inputObject.displayName}}<span ng-show="required" class="asterisk">*</span></label>
-  <div class="form-control">
-    <div>
-      <div ng-repeat="cols in columnsChoices" class="form-control">
-        <ul>
-          <li ng-repeat="ch in cols">
-            <div class="checkbox-wrap">
-              <label>
-                <input type="checkbox" ng-model="ch.value" ng-change="ch.func()" id="check{{$index}}{{$parent.$index}}"/>
-                <label for="check{{$index}}{{$parent.$index}}">{{ch.description}}</label>
-              </label>
-            </div>
-          </li>
-        </ul>
+  <div class="control-label">
+    <label>{{inputObject.displayName}}</label><span style="color:red" ng-show="required">*</span>
+  </div>
+  <div class="float-left">
+    <div class="form-control">
+      <div>
+        <div ng-repeat="cols in columnsChoices" class="form-control">
+          <ul>
+            <li ng-repeat="ch in cols">
+              <div class="checkbox-wrap">
+                <label>
+                  <input type="checkbox" ng-model="ch.value" ng-change="ch.func()" id="check{{$index}}{{$parent.$index}}"/>
+                  <label for="check{{$index}}{{$parent.$index}}">{{ch.description}}</label>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="clear"></div>
-    <div class="description-wrap">{{inputObject.description}}</div>
+    <div class="description-wrap">{{psDescription}}</div>
+    <div class="errormsg-wrap">{{inputObject.errorMsg}}</div>
   </div>
   <div class="clear"></div>
-  <div>{{inputObject.errorMsg}}</div>
 </div>

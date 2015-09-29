@@ -1,4 +1,4 @@
-angular.module('testDirectives')
+ angular.module('testDirectives')
 .controller('testNumber', ['$scope', function ($scope) {
     $scope.increaseNumber = function () {
         $scope.inputObject.data++;

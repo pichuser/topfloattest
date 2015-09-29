@@ -4,18 +4,22 @@
     <label>{{inputObject.displayName}}</label><span style="color:red" ng-show="required">*</span>
   </div>
   <div class="float-left">
-    <div ng-click="changeVisibleBody();" class="form-width300 select-list-head">
-      <div class="float-left">{{inputObject.data}}</div>
-      <div ng-show="IsVisibleBody" class="float-right">˄</div>
-      <div ng-show="!IsVisibleBody" class="float-right">˅</div>
-      <div class="clear"></div>
+    <div class="float-left">
+      <div ng-click="changeVisibleBody();" class="form-width300 select-list-head">
+        <div class="float-left">{{inputObject.data}}</div>
+        <div ng-show="IsVisibleBody" class="float-right">˄</div>
+        <div ng-show="!IsVisibleBody" class="float-right">˅</div>
+        <div class="clear"></div>
+      </div>
+      <div ng-show="IsVisibleBody" class="select-list-body">
+        <ul>
+          <li ng-repeat="ch in psChoices" ng-click="select(ch.description)" ng-class="ch.description == inputObject.data? &quot;active&quot;: &quot;&quot;" class="form-width300 noselect">{{ch.description}}</li>
+        </ul>
+      </div>
     </div>
-    <div ng-show="IsVisibleBody" class="select-list-body">
-      <ul>
-        <li ng-repeat="ch in psChoices" ng-click="select(ch.description)" ng-class="ch.description == inputObject.data? &quot;active&quot;: &quot;&quot;" class="form-width300">{{ch.description}}</li>
-      </ul>
-    </div>
+    <div class="clear"></div>
+    <div class="description-wrap">{{psDescription}}</div>
+    <div class="errormsg-wrap">{{inputObject.errorMsg}}</div>
   </div>
   <div class="clear"></div>
-  <div>{{inputObject.errorMsg}}</div>
 </div>

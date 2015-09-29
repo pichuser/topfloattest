@@ -1,0 +1,88 @@
+$height: 34px
+$border-radius: 6px
+.container
+	width: 1100px
+	margin: auto
+
+.control-label
+	float:left
+	width:150px
+	height: $height
+	text-align:left
+	padding-right:1em
+	padding-top:10px
+
+.form-control
+	float:left
+	vertical-align: center
+
+.clear
+	clear: both
+
+input
+	border-radius: $border-radius
+	height: $height
+	width: 100%
+
+.ps-row
+	margin-bottom: 15px
+
+.asterisk
+	color: red
+
+li
+	list-style:none
+
+ul
+	padding: 0px
+	margin: 0px
+
+.description-wrap
+	font-size: 8pt
+	line-height: 12px
+	font-family: Arial
+	color: #999999
+
+.errormsg-wrap
+	@extend .description-wrap
+	color: red
+
+.btn
+	background-color: #FFE783
+	padding: 10px 30px
+	border-radius: $border-radius
+	font-size: 16px
+	border:none !important
+	box-shadow: 0px 1px 0px rgba(67, 38, 255, 0.51);
+
+.btn-add
+	border: 1px solid black
+	border-radius: 20px
+	width: 20px
+	height: 20px
+	text-align: center
+	margin: 6px
+
+.btn-remove
+	@extend .btn-add
+	background-color: red
+
+.float-left
+	float: left
+
+.form-width700
+	width: 700px
+
+.form-width300
+	width: 300px
+.form-width400
+	width: 400px
+
+.noselect 
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+

@@ -1,7 +1,5 @@
-﻿div.ps-row
-	div.control-label
-		label {{inputObject.displayName}}
-		span(style='color:red', ng-show='required') *
+﻿extend ../_share.jade
+block content
 	div.float-left
 		div.form-width300.select-list-head(ng-click='changeVisibleBody();')
 			div.float-left {{inputObject.data}}
@@ -10,8 +8,6 @@
 			div.clear
 		div.select-list-body(ng-show='IsVisibleBody')
 			ul
-				li.form-width300(ng-repeat='ch in psChoices',	
+				li.form-width300.noselect(ng-repeat='ch in psChoices',	
 					ng-click='select(ch.description)',
 					ng-class='ch.description == inputObject.data? "active": ""') {{ch.description}}
-	div.clear
-	div {{inputObject.errorMsg}}

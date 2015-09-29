@@ -7,7 +7,7 @@ var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
-var connect = require('gulp-connect');
+var gutil = require('gulp-util');
 
 gulp.task('concatcss', ['sass'], function () {
 	return gulp.src('app/public/**/*.css')
@@ -31,9 +31,9 @@ gulp.task('jade', function () {
 	return gulp.src(['app/directives/**/*.jade', '!./assets/template/_*.jade'])
         .pipe(jade({
         	pretty: true
-        }))  // Собираем Jade только в папке ./assets/template/ исключая файлы с _*
-        .on('error', console.log) // Если есть ошибки, выводим и продолжаем
-    .pipe(gulp.dest('app/public/')) // Записываем собранные файлы
+        }))
+        .on('error', console.log)
+    .pipe(gulp.dest('app/public/'))
 });
 
 
@@ -44,11 +44,12 @@ gulp.task('templatecache', ['jade'], function () {
         	module: 'testDirectives'
         }
         ))
-      .pipe(gulp.dest('app/public'));
+      .pipe(gulp.dest('app/src'));
 });
 
 
 gulp.task('webserver', function () {
+	gutil.log('hhhh');
 	gulp.src('app')
       .pipe(webserver({
       	host: '192.168.3.120',
@@ -56,7 +57,9 @@ gulp.task('webserver', function () {
 		{
 			enable: true,
 			filter: function (fileName) {
-				if (fileName.match(/data.txt$/)) { // exclude all source maps from livereload 
+				if (fileName.match(/data.txt$/)
+					|| fileName.match(/\\directives\\/)
+					|| fileName.match(/\\public\\/)) {
 					return false;
 				} else {
 					return true;
@@ -65,7 +68,7 @@ gulp.task('webserver', function () {
 		},
       	//directoryListing: true,
       	open: true,
-		fallback: 'jlakjlaksjdflaksjdlfkajsdf',
+      	fallback: 'jlakjlaksjdflaksjdlfkajsdf',
       	proxies: [{ source: '/getsavedform', target: 'http://localhost:3000/getsavedform', options: {} },
       	{ source: '/testform', target: 'http://localhost:3000/testform', options: {} }]
       }));
@@ -73,28 +76,11 @@ gulp.task('webserver', function () {
 
 gulp.task('watch', function () {
 	// Предварительная сборка проекта
+	gulp.run('templatecache');
+	gulp.run('concatcss');
+	gulp.run('scripts');
 	gulp.watch('app/directives/**/*.jade', ['templatecache']);
 	gulp.watch('app/directives/**/*.sass', ['concatcss']);
 	gulp.watch('app/directives/**/*.js', ['scripts']);
 	gulp.run('webserver');
 });
-
-
-gulp.task('connect', function () {
-	connect.server({
-		root: 'app',
-		livereload: true
-	});
-});
-
-gulp.task('html', function () {
-	gulp.src('app/*.html')
-	  .pipe(connect.reload());
-});
-
-gulp.task('watch1', function () {
-	gulp.watch(['app/*.html'], ['html']);
-	gulp.watch(['app/public/*.js', 'app/src/*.js'], ['html']);
-});
-
-gulp.task('default1', ['connect', 'watch', 'watch1']);

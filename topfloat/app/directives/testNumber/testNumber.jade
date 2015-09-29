@@ -1,11 +1,7 @@
-﻿div.ps-row
-	div.control-label
-		label {{inputObject.displayName}}
-		span(style='color:red', ng-show='required') *
+﻿extend ../_share.jade
+block content
 	div.number-control
 		input(type='number',ng-model='inputObject.data')
 	div.float-left.arrow-container
 		div.arrow-up.noselect(ng-click='increaseNumber();') ▲
 		div.arrow-down.noselect(ng-click='decreaseNumber();') ▼
-	div.clear
-	div {{inputObject.errorMsg}}
