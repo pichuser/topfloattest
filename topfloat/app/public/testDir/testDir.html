@@ -1,0 +1,15 @@
+
+<div class="ps-row">
+  <div class="control-label">
+    <label>{{inputObject.displayName}}</label><span style="color:red" ng-show="required">*</span>
+  </div>
+  <div class="number-control">
+    <input type="number" ng-model="inputObject.data"/>
+  </div>
+  <div class="float-left arrow-container">
+    <div ng-click="test();" class="arrow-up noselect">▲</div>
+    <div ng-click="test1();" class="arrow-down noselect">▼</div>
+  </div>
+  <div class="clear"></div>
+  <div>{{inputObject.errorMsg}}</div>
+</div>

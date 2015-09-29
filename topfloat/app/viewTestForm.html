@@ -1,25 +1,32 @@
-<div test-form ps-action="/testform" ps-init-data="{{parent.data}}" ps-form-name="Анкета">
-    <div test-input
+<div test-form ps-action="/testform" ps-init-data="{{parent.data}}" ps-form-name="Анкета">  
+    <div general-test-directive ps-directive-type="testInput"
         ps-label="name"
         ps-validation="[{required: true, message: 'Поле обязательно для заполнения'}]"
         ps-display-name="Имя"
         required="true">
     </div>
-    <div test-input ps-label="vuz"
-		ps-many-values="true"
-		ps-placeholder="Например, ВолгГАСУ"
-		ps-description="Укажите учебные заведения, в которых вы учились."
-        ps-display-name="Вуз">
+    <div general-test-directive ps-directive-type="testInput"
+        ps-label="vuz"
+        ps-many-values="true"
+        ps-placeholder="Например, ВолгГАСУ"
+        ps-description="Укажите учебные заведения, в которых вы учились."
+        ps-display-name="Вуз"
+        required="true">
     </div>
-    <div test-number ps-label="age"
+    <div general-test-directive
+        ps-directive-type="testNumber"
+        ps-label="age"
         ps-display-name="Возраст">
     </div>
-    <div test-checkbox ps-label="knowledge"
-		ps-description="Отметьте ваши навыки"
+    <div general-test-directive ps-directive-type="testCheckbox"
+        ps-label="knowledge"
+        ps-description="Отметьте ваши навыки"
         ps-display-name="Навыки"
         ps-choices="choices"
         ps-column-size="6">
     </div>
 </div>
-<button type="button" class="btn btn-warning" ng-click="restoreForm();">Восстановить</button>
+<button type="button" class="btn btn-warning" ng-click="restoreForm();">
+    Восстановить
+</button>
 <button type="button" class="btn btn-warning" ng-click="clearForm();">Очистить</button>

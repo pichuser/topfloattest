@@ -25,26 +25,19 @@ angular.module('testDirectives')
                 if (obj) {
                     for (var i = 0; i < $scope.fields.length; i++) {
                         item = $scope.fields[i];
-                        item.data = obj[item.label];
+                        item.setData(obj[item.label])
                     }
                 } else {
                     for (var i = 0; i < $scope.fields.length; i++) {
                         item = $scope.fields[i];
-                        //checbox ввиде списка, другая обработка
-                        if (!Array.isArray(item.data)) {
-                            item.data = null;
-                        } else {
-                            for (var j = 0; j < item.data.length; j++) {
-                                item.data[j].value = null;
-                            }
-                        }
+                        item.clear();
                     }
                 }
             }
             function getData() {
                 var testForm = {};
                 _.map($scope.fields, function (el) {
-                    testForm[el.label] = el.data;
+                    testForm[el.label] = el.getData();
                 });
                 return testForm;
             }

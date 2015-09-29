@@ -1,51 +1,25 @@
 angular.module('testDirectives')
-    .directive('testCheckbox', ['$templateCache', function ($templateCache) {
-        return {
-            scope:
-                {
-                    psLabel: '@psLabel',
-                    psValidation: '=psValidation',
-                    psDisplayName: '@',
-                    required: '=',
-                    psChoices: '=',
-                    psColumnSize: '=',
-					psDescription: '@'
-                },
-            require: '^testForm',
-            compile: function () {
-                return {
-                    pre: function ($scope, $element, $attrs, parentCtrl) {
-                    },
-                    post: function ($scope, $element, $attrs, parentCtrl) {
-                        parentCtrl.fields.push($scope.inputObject)
-                    }
-                };
-            },
-            controller: function ($scope) {
-                $scope.$on('updateModel', function () {
-                    updateModel();
-                });
-                $scope.psChoices.push({ description: "Выделить все", func: select_unselectAll });
-                function select_unselectAll() {
-                    var last = _.last($scope.inputObject.data);
-                    _($scope.inputObject.data).forEach(function (n) {
-                        n.value = last.value;
-                    }).value();
-                    updateModel();
-                }
-                $scope.inputObject = {
-                    label: $scope.psLabel,
-                    displayName: $scope.psDisplayName,
-                    validationRules: (!$scope.psValidation ? [] : $scope.psValidation),
-                    data: $scope.psChoices,
-					description: $scope.psDescription
-                };
-                updateModel();
-                function updateModel() {
-                    $scope.columnsChoices = _.chunk($scope.inputObject.data, $scope.psColumnSize);
-                    _.last($scope.inputObject.data).func = select_unselectAll;
-                }
-            },
-            template: $templateCache.get('testCheckbox/testCheckbox.html')
-        };
-    }]);
+.controller('testCheckbox', ['$scope', function ($scope) {
+    $scope.inputObject.data = $scope.psChoices;
+    $scope.inputObject.clear = function () {
+        for (var j = 0; j < $scope.inputObject.data.length; j++) {
+            $scope.inputObject.data[j].value = null;
+        }
+    }
+    $scope.$on('updateModel', function () {
+        updateModel();
+    });
+    $scope.psChoices.push({ description: "Выделить все", func: select_unselectAll });
+    updateModel();
+    function select_unselectAll() {
+        var last = _.last($scope.inputObject.data);
+        _($scope.inputObject.data).forEach(function (n) {
+            n.value = last.value;
+        }).value();
+        updateModel();
+    }
+    function updateModel() {
+        $scope.columnsChoices = _.chunk($scope.inputObject.data, $scope.psColumnSize);
+        _.last($scope.inputObject.data).func = select_unselectAll;
+    }
+}])
