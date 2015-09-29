@@ -31,7 +31,8 @@ angular.module('testDirectives', [
             psColumnSize: '=',
             psDescription: '@',
             psPlaceholder: '@',
-            psManyValues: '@'
+            psManyValues: '@',
+            psEmptyValue: '@'
         },
         controller: function ($scope, $controller) {
             $scope.inputObject = new testfunction();

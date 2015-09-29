@@ -25,6 +25,18 @@
         ps-choices="choices"
         ps-column-size="6">
     </div>
+    <div general-test-directive ps-directive-type="testSelect"
+        ps-label="family"
+        ps-display-name="Семейное положение"
+        ps-choices="familyState"
+        required="true">
+    </div>
+	<div general-test-directive ps-directive-type="testSelect"
+        ps-label="city"
+        ps-display-name="Место рождения"
+        ps-choices="cities"
+		ps-empty-value="Не важно">
+    </div>
 </div>
 <button type="button" class="btn btn-warning" ng-click="restoreForm();">
     Восстановить

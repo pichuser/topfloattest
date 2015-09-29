@@ -5,14 +5,14 @@ angular.module('myApp', [
   'testDirectives'
 ])
 .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'viewTestForm.html',
-        controller: 'ViewController'
-    });
-    $routeProvider.otherwise({ redirectTo: '/view1' });
+	$routeProvider.when('/view1', {
+		templateUrl: 'viewTestForm.html',
+		controller: 'ViewController'
+	});
+	$routeProvider.otherwise({ redirectTo: '/view1' });
 }]).
 controller('ViewController', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
-    $scope.choices = [{ description: 'Общение' },
+	$scope.choices = [{ description: 'Общение' },
          { description: 'Знание иностранных языков' },
         { description: 'Готовка' },
         { description: 'Бег с препятствиями' },
@@ -21,24 +21,40 @@ controller('ViewController', ['$scope', '$http', '$timeout', function ($scope, $
         { description: 'Пение' },
         { description: 'Программирование' },
         { description: 'Вождение' }
-    ];
-    $scope.parent = {};
-    $scope.clearForm = function () {
-        $scope.parent.data = null;
-        $timeout(function () { $scope.$broadcast('updateModel'); }, 0);
-    }
-    $scope.restoreForm = function () {
-        $http({
-            method: 'POST',
-            url: '/getsavedform'
-        }).then(function (response) {
-            $scope.parent.data = angular.copy(response.data);
-            $timeout(function () { $scope.$broadcast('updateModel'); }, 0);
-        });
-    }
+	];
+	$scope.familyState = [
+		{ description: 'Не женат/не замужем' },
+		{ description: 'Женат/замужем' }
+	]
+	$scope.cities = [
+			{ description: 'Абакан' },
+			{ description: 'Альметьевск' },
+			{ description: 'Ангарск' },
+			{ description: 'Архангельск' },
+			{ description: 'Ачинск' },
+			{ description: 'Бавлы' },
+			{ description: 'Байкальск' },
+			{ description: 'Баксан' },
+			{ description: 'Балашиха' },
+			{ description: 'Волгоград' }
+	]
+	$scope.parent = {};
+	$scope.clearForm = function () {
+		$scope.parent.data = null;
+		$timeout(function () { $scope.$broadcast('updateModel'); }, 0);
+	}
+	$scope.restoreForm = function () {
+		$http({
+			method: 'POST',
+			url: '/getsavedform'
+		}).then(function (response) {
+			$scope.parent.data = angular.copy(response.data);
+			$timeout(function () { $scope.$broadcast('updateModel'); }, 0);
+		});
+	}
 }])
 .constant('_', window._)
 // use in views, ng-repeat="x in _.range(3)"
   .run(function ($rootScope) {
-      $rootScope._ = window._;
+  	$rootScope._ = window._;
   });
