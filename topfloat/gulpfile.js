@@ -7,8 +7,6 @@ var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
-var gutil = require('gulp-util');
-
 gulp.task('concatcss', ['sass'], function () {
 	return gulp.src('app/public/**/*.css')
       .pipe(concatCss("bundle.css"))
@@ -49,7 +47,6 @@ gulp.task('templatecache', ['jade'], function () {
 
 
 gulp.task('webserver', function () {
-	gutil.log('hhhh');
 	gulp.src('app')
       .pipe(webserver({
       	host: '192.168.3.120',
@@ -74,7 +71,7 @@ gulp.task('webserver', function () {
       }));
 });
 
-gulp.task('watch', function () {
+gulp.task('default', function () {
 	// Предварительная сборка проекта
 	gulp.run('templatecache');
 	gulp.run('concatcss');

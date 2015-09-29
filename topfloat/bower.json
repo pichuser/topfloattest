@@ -1,18 +1,13 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "testTopfloat",
+  "description": "test",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/pichuser/topfloattest",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
     "angular-route": "~1.4.0",
-    "angular-loader": "~1.4.0",
-    "angular-mocks": "~1.4.0",
-    "html5-boilerplate": "~5.2.0",
-    "bootstrap-sass": "~3.3.5",
-    "angular-ui-select": "~0.12.1",
     "lodash": "~3.10.1"
   }
 }
